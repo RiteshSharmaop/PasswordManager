@@ -135,4 +135,4 @@ EMAIL_PORT = "587"
 EMAIL_HOST_USER = "connectwithritessh@gmail.com"
 EMAIL_HOST_PASSWORD = "connectwithme"
 
-KEY= b'sTiDc5DO6pW5gtyoLWvl6lijGR0ff1bVPZwdapcBZlY='
+KEY= b'v9V7h2AwepcrVSwUXgdkzCFe6ChufsAAXM7_cQDA4YI='

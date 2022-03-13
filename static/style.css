@@ -14,6 +14,8 @@
     --gray-color: rgba(255,255,255,0.1);
 }
 
+
+
 html{
     background-color: var(--global-background-color);
     color: var(--global-text-color);
@@ -28,6 +30,7 @@ a{
 a:hover{
     color: var(--text-hover-color);
 }
+
 
 input{
     width: 70%;

@@ -119,10 +119,10 @@ def home(request):
             except:
                 title = url
             #get logo url
-            try:
-                icon = favicon.get(url)[0].url
-            except:
-                icon = "https://cdn-icons-png.flaticon.com/128/1006/1006771.png"
+            # try:
+            # icon = favicon.get(url)[0].url
+            # except:
+                # icon = "https://cdn-icons-png.flaticon.com/128/1006/1006771.png"
             #print data
             # print("\n\n\n")
             # print(encrypted_email)
@@ -134,7 +134,7 @@ def home(request):
             new_password = Password.objects.create(
                 user=request.user,
                 name=title,
-                logo=icon,
+                # logo=icon,
                 email=encrypted_email.decode(),
                 password=encrypted_password.decode(),
             )
@@ -143,29 +143,16 @@ def home(request):
             messages.success(request, mss)
             return HttpResponseRedirect(request.path)
 
-
-    passwords = Password.objects.all().filter(user=request.user)
-    for password in passwords:
-        password.email = fernet.decrypt(password.email.encode()).decode()
-        password.password = fernet.decrypt(password.password.encode()).decode()
-        password.save()
-
-
-    # context = {}
-    # if request.user.is_authenticated:
-    #     print("ok")
-    #     passwords = Password.objects.all().filter(user=request.user)
-    #     for password in passwords:
-    #         password.email = fernet.decrypt(password.email.encode()).decode()
-    #         password.password = fernet.decrypt(password.password.encode()).decode()
-    #     context = {
-    #         "passwords":passwords,
-    #     }   
-#
+    context = {}
+    if request.user.is_authenticated:
+        passwords = Password.objects.all().filter(user=request.user)
+        for password in passwords:
+            password.email = fernet.decrypt(password.email.encode()).decode()
+            password.password = fernet.decrypt(password.password.encode()).decode()
+        context = {
+            "passwords":passwords,
+        }   
 
 
 
-
-
-    return render(request,'home.html',)
-    # return render(request,'home.html' , context)
+    return render(request, "home.html", context)

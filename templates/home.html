@@ -139,9 +139,9 @@
                 <a href="" class="action-item">View</a>
                 <a href="" class="action-item">Update</a>
             </div>
-            <img width="50" height="50" src="{{password.icon}}" alt="">
-            <div class="name"> {{ password.name }}</div>
-            <!-- password modal-->
+            <!--<img width="50" height="50" src="{{password.icon}}" alt=""> -->
+            <div class="name" name ="name" id ="name" style="text-color: black"><h1> {{ password.name }} </h2></div>
+            <!-- password modal-->  
             <input type="email" name="email" value="{{password.email}}"><i class="fas fa-copy copy" title="copy to clipboard"></i>
             <input type="password" name="username" value="{{password.password}}"><i class="fas fa-copy copy" title="copy to clipboard"></i>
           
