@@ -135,9 +135,12 @@
         {% for password in passwords %}
         <div class="card">
             <div class="actions">&nbsp;Actions <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                <a href="" class="action-item">Delete</a>
-                <a href="" class="action-item">View</a>
-                <a href="" class="action-item">Update</a>
+                <a href="javascript:;" onclick="document.getElementById('delete-btn')" class="action-item">Delete</a>
+                <form hidden="true" action="." method="POST">
+                    {% csrf_token %}
+                    <input type="text" hidden="true" name= "password-id" value="{{password.id}}">
+                    <input type="submit" id ="delete-btn" name="delete">
+                </form>
             </div>
             <!--<img width="50" height="50" src="{{password.icon}}" alt=""> -->
             <div class="name" name ="name" id ="name" style="text-color: black"><h1> {{ password.name }} </h2></div>
@@ -161,3 +164,5 @@
     
 </body>
 </html>
+
+
